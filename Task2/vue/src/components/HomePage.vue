@@ -1,7 +1,9 @@
 <template>
 <div class="home-component">
-  <LeftComponent></LeftComponent>
-  <RightComponent></RightComponent>
+  <div class="menu">
+    <LeftComponent></LeftComponent>
+    <RightComponent></RightComponent>
+  </div>
 </div>
 </template>
 
@@ -21,15 +23,16 @@ export default {
 
 <style scoped>
 .home-component {
+  display: flex;
   width: 100%;
   height: 100%;
-  padding-top: var(--navbar-height);
   background: var(--main-background-color);
 }
 
-.content {
-  max-width: var(--content-width);
+.menu {
+  position: relative;
+  top: 30%;
+  display: flex;
   margin: 0 auto;
 }
-
 </style>

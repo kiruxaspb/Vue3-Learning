@@ -1,0 +1,240 @@
+.custom-drop-select {
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.custom-select,
+.select-item,
+.item-searchbar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 47px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.custom-drop-select.lite .custom-select {
+  height: 27px;
+  box-shadow: none;
+}
+
+.custom-drop-select.lite .select-item,
+.custom-drop-select.lite .item-searchbar {
+  height: 27px;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.custom-drop-select.lite .item-text {
+  line-height: 17px;
+  text-align: right;
+}
+
+.custom-select {
+  transition: .7s;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  line-height: inherit;
+  padding: 0;
+}
+
+.custom-drop-select.lite .select-item {
+  border: 1px solid transparent;
+  border-radius: 0;
+  border-top: 1px solid #C0C7BA;
+}
+
+.custom-drop-select.lite .select-item:hover,
+.custom-drop-select.lite .custom-select.active .select-item{
+  box-shadow: 0px 0px 4px forestgreen;
+  border: 1px solid forestgreen;
+  border-radius: 3px;
+}
+
+.custom-drop-select.lite .dropdown-list .select-item {
+  border: 1px solid #C0C7BA;
+  border-radius: 3px;
+}
+
+.custom-select.active {
+  transition: .7s;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.custom-select.disabled {
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  color: #C0C7BA;
+  transition: .7s;
+}
+
+.select-item {
+  border: 1px solid #C0C7BA;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: .3s opacity;
+  opacity: 1;
+}
+
+.fade-away {
+  transition: .3s opacity;
+  opacity: 0 !important;
+}
+
+.select-item:hover,
+.select-item.selected {
+  transition: .3s;
+  border: 1px solid forestgreen;
+}
+
+.select-item:hover {
+  transition: .3s;
+  box-shadow: 0px 0px 4px forestgreen;
+  cursor: pointer;
+}
+
+.select-item,
+.item-body,
+.item-image,
+.item-searchbar {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.item-body, .item-text {
+  height: 100%;
+  flex: auto;
+  line-height: 37px;
+  overflow: hidden;
+}
+
+.item-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  flex-grow: 1;
+  margin-right: 7px;
+}
+
+.item-image {
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.item-image img {
+  width: 100%;
+}
+
+.custom-select.active .item-indicator {
+  transform: rotate(180deg);
+  transition: .3s;
+}
+
+.custom-select.active .item-indicator path {
+  stroke: forestgreen;
+}
+
+.item-searchbar {
+  margin-bottom: 15px;
+}
+
+.search-holder {
+  flex: auto;
+  height: 100%;
+  margin-right: 5px;
+}
+
+.search-holder input {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  border-bottom: 1px solid #C0C7BA;
+  color: #C0C7BA;
+  font-weight: 600;
+}
+
+.search-holder:focus-within~.item-indicator path,
+.search-holder:hover~.item-indicator path {
+  fill: forestgreen;
+}
+
+.search-holder input:focus {
+  border-bottom: 1px solid forestgreen;
+  color: #353535;
+}
+
+.search-holder:hover input {
+  border-bottom: 1px solid forestgreen;
+}
+
+.custom-drop-select.lite .item-indicator{
+  width: 17px;
+  height: 12px;
+  line-height: 12px;
+}
+
+.item-indicator {
+  width: 21px;
+  height: 14px;
+  transition: .3s;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.item-searchbar .item-indicator {
+  width: 25px;
+  height: 25px;
+}
+
+.item-indicator svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dropdown-container {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.dropdown-container.show {
+  overflow: visible;
+}
+
+.dropdown-list {
+  transition: max-height .7s;
+  max-height: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7px 5px;
+  background: white;
+  border: 1px solid #C0C7BA;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.dropdown-list.show {
+  transition: max-height .7s;
+  max-height: 330px;
+  overflow: auto;
+}
+
+.hide {
+  display: none;
+}

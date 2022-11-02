@@ -1,0 +1,140 @@
+:root {
+  --block-width: 100px;
+  --block-height: 100px
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background: gray;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 75px;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+.main {
+  flex-wrap: wrap;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* first */
+
+.container-one {
+  width: calc(var(--block-width)*3);
+  height: calc(var(--block-height)*3);
+  margin: 0 auto;
+  background: rgb(69, 69, 69);
+}
+
+.block-one {
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(179, 71, 71);
+  position: relative;
+  left: 33.33%;
+}
+
+.block-two {
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(37, 161, 58);
+  position: relative;
+  left: 66.66%;
+}
+
+.block-three {
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(185, 254, 24);
+  position: relative;
+  top: -33.33%
+}
+
+.block-four {
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(119, 95, 253);
+  position: relative;
+  left: 33.33%;
+  top: -33.33%
+}
+
+.block-five {
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(197, 85, 184);
+  position: relative;
+  top: -100%;
+  left: 33.33%;
+}
+
+/* second */
+
+.container-two {
+  width: calc(var(--block-width)*3);
+  height: calc(var(--block-height)*3);
+  margin: 0 auto;
+  background: rgb(219, 212, 212);
+}
+
+.block-six {
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(9, 206, 255);
+  margin: 0 auto;
+}
+
+.second-row {
+  display: flex;
+}
+
+.block-seven {
+  /* flex: auto; */
+  flex-shrink: 0;
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(255, 71, 71);
+}
+
+.block-eight {
+  /* flex: auto; */
+  flex-shrink: 0;
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(8, 160, 102);
+}
+
+.block-nine {
+  /* flex: auto; */
+  flex-shrink: 0;
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(255, 192, 242);
+}
+
+.block-ten {
+  width: var(--block-width);
+  height: var(--block-height);
+  background: rgb(177, 181, 255);
+  margin: 0 auto;
+}

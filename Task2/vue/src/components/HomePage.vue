@@ -24,14 +24,16 @@ export default {
 <style scoped>
 .home-component {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   background: var(--main-background-color);
 }
 
 .menu {
-  position: relative;
-  top: 30%;
+  flex-wrap: wrap;
+  position: absolute;
   display: flex;
   margin: 0 auto;
 }

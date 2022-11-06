@@ -11,7 +11,7 @@
         <input type="text" placeholder="Input your name" v-model="nameText">
         <button class="add-name" @click="addName">Add</button>
       </div>
-      <div class="errors">
+      <div class="errors-holder">
         <div class="error-msg" v-show="!isSymbol">{{ this.errors.ForbiddenCharacters }}</div>
         <div class="error-msg" v-show="!isTwoWords">{{ this.errors.NotTwoWords }}</div>
       </div>

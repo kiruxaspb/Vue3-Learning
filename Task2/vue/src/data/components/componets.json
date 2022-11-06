@@ -1,0 +1,9 @@
+{
+  "playComponent": "PlayComponent",
+  "settingComponent": "SettingsComponent",
+  "settingApp": "SettingApp",
+  "apps": {
+    "firstApp": "FirstApp",
+    "secondApp": "SecondApp"
+  }
+}

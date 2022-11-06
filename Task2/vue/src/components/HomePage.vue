@@ -1,24 +1,37 @@
 <template>
 <div class="home-component">
-  <div class="menu">
-    <LeftComponent></LeftComponent>
-    <RightComponent></RightComponent>
+  <div class="applications-holder">
+    <!-- <PlayComponent></PlayComponent> -->
+    <component :is="currentLeftApp"></component>
+    <component :is="currentRightApp"></component>
+    <!-- <SettingsComponent></SettingsComponent> -->
   </div>
 </div>
 </template>
 
 <script>
-import LeftComponent from './content/LeftComponent.vue';
-import RightComponent from './content/RightComponent.vue';
+import { mapState } from 'vuex';
+
+import PlayComponent from './center-menu/PlayComponent.vue';
+import SettingsComponent from './center-menu/SettingsComponent.vue';
+import SettingApp from './center-menu/SettingApp.vue'
+
+import FirstApp from './apps/FirstApp.vue'
+import SecondApp from './apps/SecondApp.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    LeftComponent,
-    RightComponent
+    PlayComponent,
+    SettingsComponent,
+    SettingApp,
+    FirstApp,
+    SecondApp
+  },
+  computed: {
+    ...mapState(['currentLeftApp', 'currentRightApp'])
   }
 }
-
 </script>
 
 <style scoped>
@@ -31,10 +44,9 @@ export default {
   background: var(--main-background-color);
 }
 
-.menu {
+.applications-holder {
   flex-wrap: wrap;
-  position: absolute;
   display: flex;
-  margin: 0 auto;
+  justify-content: center;
 }
 </style>

@@ -140,7 +140,7 @@ h1 {
   font-size: 15px;
 }
 
-.errors {
+.errors-holder {
   margin-top: 10px;
 }
 

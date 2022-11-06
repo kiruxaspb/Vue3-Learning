@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
-import components from '@/data/components/componets.json'
+import components from '@/data/components/componets.json';
+import errors from '@/data/components/errors.json';
 
 export const store = createStore({
   state() {
@@ -16,7 +17,8 @@ export const store = createStore({
       currentLeftApp: components.playComponent,
       currentRightApp: components.settingComponent,
 
-      components
+      components,
+      errors
     }
   },
   mutations: {

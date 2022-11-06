@@ -7,18 +7,14 @@
       </svg>
     </div>
     <div class="input-name-application">
-      <form @submit.prevent="someAction()">
-        <div class="input-add-holder">
-          <input type="text" placeholder="Input your name" v-model="nameText" @blur="namePlaceTouched = true">
-          <button
-            class="add-name"
-            @blur="isSymbol = true, isTwoWords = true"
-            @click="addName">
-          Add</button>
-        </div>
-        <div class="error" v-show="isSymbol">Forbidden characters in the string</div>
-        <div class="error" v-show="isTwoWords">There are not two words in the string</div>
-      </form>
+      <div class="input-add-holder">
+        <input type="text" placeholder="Input your name" v-model="nameText">
+        <button class="add-name" @click="addName">Add</button>
+      </div>
+      <div class="errors">
+        <div class="error-msg" v-show="!isSymbol">{{ this.errors.ForbiddenCharacters }}</div>
+        <div class="error-msg" v-show="!isTwoWords">{{ this.errors.NotTwoWords }}</div>
+      </div>
       <div class="names-list">
         <div class="name-item" v-for="(name, index) in this.names" :key="index">
           {{ name }}
@@ -44,9 +40,8 @@ export default {
   data() {
     return {
       nameText: '',
-      namePlaceTouched: false,
-      isSymbol: false,
-      isTwoWords: false
+      isSymbol: true,
+      isTwoWords: true
     }
   },
   methods: {
@@ -59,7 +54,13 @@ export default {
       if (this.nameText === '') {
         return;
       }
-      this.names.push(this.nameText);
+
+      this.checkForbiddenChars();
+      this.checkTwoWordsInput();
+
+      if (this.isSymbol && this.isTwoWords) {
+        this.names.push(this.nameText);
+      }
     },
 
     removeName(index) {
@@ -74,7 +75,7 @@ export default {
     checkTwoWordsInput() {
       let str = this.nameText;
       let matches = str.match(/\S+/g) || []; // Если нет совпадений, то присвоить пустой массив
-      if (matches.length > 2) {
+      if (matches.length > 2 || matches.length < 2) {
         this.isTwoWords = false;
       } else {
         this.isTwoWords = true;
@@ -85,12 +86,11 @@ export default {
       if (!this.isEmailValid) {
         return;
       }
-
-    },
+    }
   },
 
   computed: {
-    ...mapState(['components', 'names'])
+    ...mapState(['components', 'names', 'errors']),
   }
 }
 
@@ -140,8 +140,8 @@ h1 {
   font-size: 15px;
 }
 
-.error {
-  border-color: red;
+.errors {
+  margin-top: 10px;
 }
 
 .add-name {
@@ -150,7 +150,9 @@ h1 {
   margin-left: 15px;
 }
 
-.errors {
+.error-msg {
+  color: red;
+  font-weight: 600;
   font-size: 12px;
 }
 

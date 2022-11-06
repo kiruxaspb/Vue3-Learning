@@ -10,6 +10,9 @@ export const store = createStore({
       appForPlay: components.playComponent,
 
       apps: {},
+
+      names: [],
+
       currentLeftApp: components.playComponent,
       currentRightApp: components.settingComponent,
 

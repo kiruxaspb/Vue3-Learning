@@ -7,10 +7,13 @@
         </svg>
       </div>
     </div>
-    <select name="select" v-model="selectedApp" @change="setLeftApp">
-      <option selected :value="application" v-for="(application, index) in getAppsFromComponentsList()" :key="index">{{ application }}</option>
-    </select>
-  </div>
+
+    <div class="select-holder-container">
+      <select name="select" v-model="selectedApp" @change="setLeftApp">
+        <option selected :value="application" v-for="(application, index) in getAppsFromComponentsList()" :key="index">{{ application }}</option>
+      </select>
+    </div>
+</div>
 </template>
 
 <script>
@@ -45,18 +48,16 @@ export default {
   },
 
   watch: {
+    /*
     selectedApp() {
       alert(this.selectedApp);
     }
+    */
   }
 }
 </script>
 
 <style>
-h1 {
-  cursor: pointer;
-  margin-right: 50px;
-}
 
 select {
   width: 200px;
@@ -64,23 +65,32 @@ select {
 }
 
 .setting-holder-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 300px;
-  height: 300px;
+  position: relative;
+  width: 400px;
+  height: 400px;
   background: var(--setting-page-background);
   border-radius: 10px;
 }
 
-.go-back-btn {
-  width: 25px;
-  height: 25px;
+.select-holder-container {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--setting-page-background);
+  border-radius: 10px;
 }
 
-.go-back-btn:hover {
+.back-btn {
+  z-index: 1;
+  left: 15px;
+  top: 15px;
+  position: relative;
+}
+
+.go-back-btn {
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 </style>

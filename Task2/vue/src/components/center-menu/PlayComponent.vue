@@ -33,8 +33,8 @@ export default {
 .play-holder-container {
   display: flex;
   align-items: center;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   border-radius: 15px;
   background: var(--play-backgroud-color);
 }
@@ -52,6 +52,13 @@ export default {
   cursor: pointer;
   width: 150px;
   height: 150px;
+}
+
+.play-container svg:hover {
+  margin-top:-13px;
+  margin-left: -13px;
+  width: 175px;
+  height: 175px;
 }
 
 </style>

@@ -37,6 +37,7 @@ export default {
 }
 
 html, body, #app {
+  font-family: 'Montserrat', sans-serif;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -47,7 +48,6 @@ body {
 }
 
 * {
-  /* font-family: var(--global-font-family); */
   box-sizing: border-box;
   margin: 0;
   padding: 0;

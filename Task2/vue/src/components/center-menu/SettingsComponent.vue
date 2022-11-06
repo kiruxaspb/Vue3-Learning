@@ -33,8 +33,8 @@ export default {
 .settings-holder-container {
   display: flex;
   align-items: center;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   border-radius: 15px;
   background: var(--settings-backgroud-color);
 }
@@ -54,6 +54,11 @@ export default {
   cursor: pointer;
   width: 150px;
   height: 150px;
+}
+
+.settings-container svg:hover {
+  transform: rotate(900deg);
+  transition: 15s;
 }
 
 </style>

@@ -1,4 +1,5 @@
 {
+  "EmptyInput": "String is empty",
   "ForbiddenCharacters": "Forbidden characters in the string",
   "NotTwoWords": "There are not two words in the string"
 }

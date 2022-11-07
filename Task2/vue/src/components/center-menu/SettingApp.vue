@@ -30,30 +30,22 @@ export default {
     ...mapGetters(['getAppsFromComponentsList', 'currentRightApp']),
     ...mapMutations(['setAppForPlay', 'setCurrentRightApp']),
 
-    setLeftApp() {
-      this.setAppForPlay(this.selectedApp);
-      console.log(this.$store.state.appForPlay);
-    },
-
     back() {
       this.setCurrentRightApp(this.components.settingComponent)
+    },
+
+    setLeftApp() {
+      this.setAppForPlay(this.selectedApp);
     }
   },
 
   computed: {
     ...mapState(['components'])
   },
+  
   created() {
     console.log(this.getAppsFromComponentsList());
   },
-
-  watch: {
-    /*
-    selectedApp() {
-      alert(this.selectedApp);
-    }
-    */
-  }
 }
 </script>
 

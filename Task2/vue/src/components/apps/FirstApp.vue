@@ -9,11 +9,10 @@
     <div class="input-name-application">
       <div class="input-add-holder">
         <input type="text" placeholder="Input your name" v-model="nameText">
-        <button class="add-name" @click="addName">Add</button>
+        <button class="add-name" @click="addValidString" :disabled="!isInputValid">Add</button>
       </div>
       <div class="errors-holder">
-        <div class="error-msg" v-show="!isSymbol">{{ this.errors.ForbiddenCharacters }}</div>
-        <div class="error-msg" v-show="!isTwoWords">{{ this.errors.NotTwoWords }}</div>
+        <div class="error-msg" v-for="(error, index) in currentErrors" :key="index">{{ error }}</div>
       </div>
       <div class="names-list">
         <div class="name-item" v-for="(name, index) in this.names" :key="index">
@@ -40,8 +39,7 @@ export default {
   data() {
     return {
       nameText: '',
-      isSymbol: true,
-      isTwoWords: true
+      matches: 0
     }
   },
   methods: {
@@ -50,47 +48,70 @@ export default {
       this.setCurrentLeftApp(this.components.playComponent)
     },
 
-    addName() {
-      if (this.nameText === '') {
+    addValidString() {
+      if (!this.isInputValid) {
         return;
       }
-
-      this.checkForbiddenChars();
-      this.checkTwoWordsInput();
-
-      if (this.isSymbol && this.isTwoWords) {
-        this.names.push(this.nameText);
-      }
+      this.names.push(this.normalizeString(this.nameText));
     },
 
     removeName(index) {
       this.names.splice(index, 1);
     },
 
-    checkForbiddenChars() {
-      let name = this.nameText;
-      this.isSymbol = /^[a-zA-Z\s]+$/.test(name);
+    capitalise(item) {
+      return `${item.charAt(0).toUpperCase()}${item.slice(1)}`;
     },
 
-    checkTwoWordsInput() {
-      let str = this.nameText;
-      let matches = str.match(/\S+/g) || []; // Если нет совпадений, то присвоить пустой массив
-      if (matches.length > 2 || matches.length < 2) {
-        this.isTwoWords = false;
-      } else {
-        this.isTwoWords = true;
-      }
-    },
-
-    someAction() {
-      if (!this.isEmailValid) {
-        return;
-      }
+    normalizeString(str) {
+      let splittedString = str.split(' ');
+      let convertStrings = [];
+      splittedString.forEach(singleString => {
+        let lowered = singleString.toLowerCase();
+        let capitalised = this.capitalise(lowered);
+        convertStrings.push(capitalised);
+      })
+      return convertStrings.join(" ")
     }
   },
 
   computed: {
     ...mapState(['components', 'names', 'errors']),
+
+    isEmptyString() {
+      return this.nameText === '';
+    },
+
+    isSymbolString() {
+      // регулярное выражение, выполяет поиск запрещенных символов в строке
+      return /^[a-zA-Z\s]+$/.test(this.nameText);
+    },
+
+    isTwoWordString() {
+      // регулярное выражение, которое ищет количество слов в строке
+      let matchesCount = this.nameText.match(/\S+/g) || [];
+      console.log(matchesCount);
+      return matchesCount.length === 2;
+    },
+
+    isInputValid() {
+      return this.isSymbolString && this.isTwoWordString && !this.isEmptyString;
+    },
+
+    currentErrors() {
+      let errorsArray = [];
+      if (this.isEmptyString) {
+        errorsArray.push([this.errors.EmptyInput]);
+      }
+      if (!this.isSymbolString) {
+        errorsArray.push([this.errors.ForbiddenCharacters])
+      }
+      if (!this.isTwoWordString) {
+        errorsArray.push([this.errors.NotTwoWords]);
+      }
+
+      return errorsArray;
+    }
   }
 }
 

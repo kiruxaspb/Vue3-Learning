@@ -57,8 +57,8 @@ export default {
 }
 
 .settings-container svg:hover {
-  transform: rotate(900deg);
-  transition: 15s;
+  transform: rotate(720deg);
+  transition: 10s;
 }
 
 </style>

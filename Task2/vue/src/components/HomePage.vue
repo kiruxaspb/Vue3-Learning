@@ -12,10 +12,9 @@ import { mapState } from 'vuex';
 
 import PlayComponent from './center-menu/PlayComponent.vue';
 import SettingsComponent from './center-menu/SettingsComponent.vue';
-import SettingApp from './center-menu/SettingApp.vue'
-
-import FirstApp from './apps/FirstApp.vue'
-import SecondApp from './apps/SecondApp.vue'
+import SettingApp from './center-menu/SettingApp.vue';
+import FirstApp from './apps/FirstApp.vue';
+import SecondApp from './apps/SecondApp.vue';
 
 export default {
   name: 'HomePage',
@@ -34,17 +33,17 @@ export default {
 
 <style scoped>
 .home-component {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
   background: var(--main-background-color);
 }
 
 .applications-holder {
-  flex-wrap: wrap;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 </style>

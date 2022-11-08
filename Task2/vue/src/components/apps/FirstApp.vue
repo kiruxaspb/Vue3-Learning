@@ -1,5 +1,5 @@
 <template>
-  <div class="second-app-holder-container">
+  <div class="first-app-holder-container">
     <div @click="back()" class="go-back-btn">
       <svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
         <path
@@ -8,7 +8,7 @@
     </div>
     <div class="input-name-application">
       <div class="input-add-holder">
-        <input type="text" placeholder="Input your name" v-model="nameText">
+        <input type="text" placeholder="Input your string" v-model="nameText">
         <button class="add-name" @click="addValidString" :disabled="!isInputValid">Add</button>
       </div>
       <div class="errors-holder">
@@ -17,12 +17,9 @@
       <div class="names-list">
         <div class="name-item" v-for="(name, index) in this.names" :key="index">
           {{ name }}
-          <div class="remove-name" @click="removeName(index)">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1792 1792"
-              style="enable-background:new 0 0 1792 1792;" xml:space="preserve">
-              <path
-                d="M1082.2,896.6l410.2-410c51.5-51.5,51.5-134.6,0-186.1s-134.6-51.5-186.1,0l-410.2,410L486,300.4 c-51.5-51.5-134.6-51.5-186.1,0s-51.5,134.6,0,186.1l410.2,410l-410.2,410c-51.5,51.5-51.5,134.6,0,186.1 c51.6,51.5,135,51.5,186.1,0l410.2-410l410.2,410c51.5,51.5,134.6,51.5,186.1,0c51.1-51.5,51.1-134.6-0.5-186.2L1082.2,896.6z" />
+          <div class="remove-name" @click="removeTargetString(index)">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1792 1792" style="enable-background:new 0 0 1792 1792;" xml:space="preserve">
+              <path d="M1082.2,896.6l410.2-410c51.5-51.5,51.5-134.6,0-186.1s-134.6-51.5-186.1,0l-410.2,410L486,300.4 c-51.5-51.5-134.6-51.5-186.1,0s-51.5,134.6,0,186.1l410.2,410l-410.2,410c-51.5,51.5-51.5,134.6,0,186.1 c51.6,51.5,135,51.5,186.1,0l410.2-410l410.2,410c51.5,51.5,134.6,51.5,186.1,0c51.1-51.5,51.1-134.6-0.5-186.2L1082.2,896.6z" />
             </svg>
           </div>
         </div>
@@ -35,7 +32,7 @@
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-  name: 'SecondApp',
+  name: 'FirstApp',
   data() {
     return {
       nameText: '',
@@ -55,12 +52,8 @@ export default {
       this.names.push(this.normalizeString(this.nameText));
     },
 
-    removeName(index) {
+    removeTargetString(index) {
       this.names.splice(index, 1);
-    },
-
-    capitalise(item) {
-      return `${item.charAt(0).toUpperCase()}${item.slice(1)}`;
     },
 
     normalizeString(str) {
@@ -72,7 +65,11 @@ export default {
         convertStrings.push(capitalised);
       })
       return convertStrings.join(" ")
-    }
+    },
+
+    capitalise(item) {
+      return `${item.charAt(0).toUpperCase()}${item.slice(1)}`;
+    },
   },
 
   computed: {
@@ -109,7 +106,6 @@ export default {
       if (!this.isTwoWordString) {
         errorsArray.push([this.errors.NotTwoWords]);
       }
-
       return errorsArray;
     }
   }
@@ -118,7 +114,7 @@ export default {
 </script>
   
 <style scoped>
-.second-app-holder-container {
+.first-app-holder-container {
   position: relative;
   border-radius: 10px;
   border: 1px solid black;
@@ -172,7 +168,7 @@ h1 {
 }
 
 .error-msg {
-  color: red;
+  color: rgb(255, 0, 0);
   font-weight: 600;
   font-size: 12px;
 }

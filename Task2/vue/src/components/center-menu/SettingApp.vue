@@ -7,7 +7,6 @@
         </svg>
       </div>
     </div>
-
     <div class="select-holder-container">
       <p>Apps:</p>
       <select name="select" v-model="selectedApp" @change="setLeftApp">
@@ -38,7 +37,7 @@ export default {
     }
   },
   methods: {
-    ...mapGetters(['getAppsFromComponentsList', 'currentRightApp', 'getСolorsFromCustomColorsList', 'getFontsFromCustomFontsList']),
+    ...mapGetters(['currentRightApp', 'getAppsFromComponentsList', 'getСolorsFromCustomColorsList', 'getFontsFromCustomFontsList']),
     ...mapMutations(['setAppForPlay', 'setCurrentRightApp', 'setAppThemeColor', 'setAppFont']),
 
     back() {
@@ -71,7 +70,6 @@ export default {
 </script>
 
 <style>
-
 select {
   width: 200px;
   height: 30px;
@@ -100,15 +98,15 @@ select {
 }
 
 .back-btn {
-  z-index: 1;
+  position: relative;
   left: 15px;
   top: 15px;
-  position: relative;
+  z-index: 1;
 }
 
 .go-back-btn {
-  cursor: pointer;
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
 </style>

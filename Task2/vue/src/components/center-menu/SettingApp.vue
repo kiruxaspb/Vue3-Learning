@@ -15,11 +15,11 @@
       </select>
       <p>Colors:</p>
       <select name="select" v-model="selectedAppThemeColor" @change="setAppColor">
-        <option selected :value="color" v-for="(color, index) in getСolorsFromCustomColorsList()" :key="index">{{ color }}</option>
+        <option selected :value="color" v-for="(color, index) in getСolorsFromCustomColorsList()" :key="index">{{ index }}</option>
       </select>
       <p>Fonts:</p>
       <select name="select" v-model="selectedAppFont" @change="setAppFont">
-        <option selected :value="font" v-for="(font, index) in getFontsFromCustomFontsList()" :key="index">{{ font }}</option>
+        <option selected :value="font" v-for="(font, index) in getFontsFromCustomFontsList()" :key="index">{{ index }}</option>
       </select>
     </div>
 </div>

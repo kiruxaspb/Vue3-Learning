@@ -1,7 +1,7 @@
 {
-  "DefalutFont": "Arial, sans-serif",
+  "DefaultFont": "'Montserrat', sans-serif",
   "customFonts": {
-    "TrebuchetMS": "TrebuchetMS, sans-serif",
-    "Montserrat": "Montserrat, sans-serif"
+    "Consolas": "'Consolas', sans-serif",
+    "Trebuchet MS": "'Trebuchet MS', sans-serif"
   }
 }

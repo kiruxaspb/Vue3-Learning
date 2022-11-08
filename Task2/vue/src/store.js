@@ -24,7 +24,7 @@ export const store = createStore({
       appFonts,
 
       appColorTheme: appColors.DefaultColor,
-      appFont: appFonts.DefalutFont
+      appFont: appFonts.DefaultFont
     }
   },
   mutations: {

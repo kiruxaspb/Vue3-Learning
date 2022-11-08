@@ -9,8 +9,17 @@
     </div>
 
     <div class="select-holder-container">
+      <p>Apps:</p>
       <select name="select" v-model="selectedApp" @change="setLeftApp">
         <option selected :value="application" v-for="(application, index) in getAppsFromComponentsList()" :key="index">{{ application }}</option>
+      </select>
+      <p>Colors:</p>
+      <select name="select" v-model="selectedAppThemeColor" @change="setAppColor">
+        <option selected :value="color" v-for="(color, index) in getСolorsFromCustomColorsList()" :key="index">{{ color }}</option>
+      </select>
+      <p>Fonts:</p>
+      <select name="select" v-model="selectedAppFont" @change="setAppFont">
+        <option selected :value="font" v-for="(font, index) in getFontsFromCustomFontsList()" :key="index">{{ font }}</option>
       </select>
     </div>
 </div>
@@ -23,12 +32,14 @@ export default {
   name: 'SettingApp',
   data() {
     return {
-      selectedApp: ''
+      selectedApp: '',
+      selectedAppThemeColor: '',
+      selectedAppFont: ''
     }
   },
   methods: {
-    ...mapGetters(['getAppsFromComponentsList', 'currentRightApp']),
-    ...mapMutations(['setAppForPlay', 'setCurrentRightApp']),
+    ...mapGetters(['getAppsFromComponentsList', 'currentRightApp', 'getСolorsFromCustomColorsList', 'getFontsFromCustomFontsList']),
+    ...mapMutations(['setAppForPlay', 'setCurrentRightApp', 'setAppThemeColor', 'setAppFont']),
 
     back() {
       this.setCurrentRightApp(this.components.settingComponent)
@@ -36,15 +47,25 @@ export default {
 
     setLeftApp() {
       this.setAppForPlay(this.selectedApp);
+    },
+
+    setAppColor() {
+      this.setAppThemeColor(this.selectedAppThemeColor);
+    },
+
+    setAppFont() {
+      this.setAppFont(this.selectedAppFont);
     }
   },
 
   computed: {
-    ...mapState(['components'])
+    ...mapState(['components', 'appColors', 'appFonts'])
   },
   
   created() {
     console.log(this.getAppsFromComponentsList());
+    console.log(this.getСolorsFromCustomColorsList());
+    console.log(this.getFontsFromCustomFontsList());
   },
 }
 </script>
@@ -67,10 +88,15 @@ select {
 .select-holder-container {
   height: 90%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: var(--setting-page-background);
   border-radius: 10px;
+}
+
+.select-holder-container select {
+  margin-bottom: 40px;
 }
 
 .back-btn {

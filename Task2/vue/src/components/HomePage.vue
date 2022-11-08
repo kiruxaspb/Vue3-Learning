@@ -1,10 +1,8 @@
 <template>
 <div class="home-component">
   <div class="applications-holder">
-    <!-- <PlayComponent></PlayComponent> -->
     <component :is="currentLeftApp"></component>
     <component :is="currentRightApp"></component>
-    <!-- <SettingsComponent></SettingsComponent> -->
   </div>
 </div>
 </template>

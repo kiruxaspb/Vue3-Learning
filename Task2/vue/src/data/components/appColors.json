@@ -1,0 +1,8 @@
+{
+  "DefaultColor":"rgb(211, 211, 211)",
+  "customColors": {
+    "Blue": "rgb(68, 68, 255)",
+    "Orange": "rgb(255, 179, 79)",
+    "Purple": "rgb(211, 79, 255)"
+  }
+}

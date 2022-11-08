@@ -1,13 +1,12 @@
 import { createStore } from 'vuex';
 import components from '@/data/components/componets.json';
 import errors from '@/data/components/errors.json';
+import appColors from '@/data/components/appColors.json';
+import appFonts from '@/data/components/appFonts.json';
 
 export const store = createStore({
   state() {
     return {
-      playClicks: 0,
-      settingsClicks: 0,
-
       appForPlay: components.playComponent,
 
       apps: {},
@@ -18,18 +17,17 @@ export const store = createStore({
       currentRightApp: components.settingComponent,
 
       components,
-      errors
+      errors,
+
+      // theme
+      appColors,
+      appFonts,
+
+      appColorTheme: appColors.DefaultColor,
+      appFont: appFonts.DefalutFont
     }
   },
   mutations: {
-    setPlayClicks(state, playClicks) {
-      state.playClicks = playClicks;
-    },
-
-    setSettingsClicks(state, settingsClicks) {
-      state.settingsClicks = settingsClicks;
-    },
-
     setCurrentLeftApp(state, currentLeftApp) {
       state.currentLeftApp = currentLeftApp;
     },
@@ -48,13 +46,33 @@ export const store = createStore({
 
     setAppForPlay(state, appForPlay) {
       state.appForPlay = appForPlay;
+    },
+
+    // theme
+    setAppThemeColor(state, appColorTheme) {
+      state.appColorTheme = appColorTheme;
+    },
+
+    setAppFont(state, appFont) {
+      state.appFont = appFont;
     }
-  }, 
+  },
+
   getters: {
     getAppsFromComponentsList(state) {
       return state.components.apps;
+    },
+
+    // theme
+    getСolorsFromCustomColorsList(state) {
+      return state.appColors.customColors;
+    },
+
+    getFontsFromCustomFontsList(state) {
+      return state.appFonts.customFonts;
     }
   },
+
   actions: {
 
   }

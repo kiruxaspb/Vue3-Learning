@@ -79,8 +79,8 @@ select {
   position: relative;
   width: 400px;
   height: 400px;
-  background: var(--setting-page-background);
   border-radius: 10px;
+  border: 1px solid black;
 }
 
 .select-holder-container {
@@ -89,7 +89,6 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--setting-page-background);
   border-radius: 10px;
 }
 

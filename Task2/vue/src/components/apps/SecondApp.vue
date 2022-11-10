@@ -22,7 +22,7 @@
     },
   
     computed: {
-      ...mapState(['components'])
+      ...mapState(['components', 'appColorTheme', 'appFont'])
     }
   }
   

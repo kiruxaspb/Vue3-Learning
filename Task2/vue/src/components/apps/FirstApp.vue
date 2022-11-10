@@ -73,7 +73,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['components', 'names', 'errors']),
+    ...mapState(['components', 'names', 'errors', 'appColorTheme', 'appFont']),
 
     isEmptyString() {
       return this.nameText === '';

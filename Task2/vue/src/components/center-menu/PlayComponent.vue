@@ -36,12 +36,11 @@ export default {
   width: 400px;
   height: 400px;
   border-radius: 15px;
-  background: var(--play-backgroud-color);
+  border: 1px solid black;
 }
 
 .play-holder-container:hover {
-  background: var(--play-hover-backgroud-color);
-  border: 1px solid var(--play-hover-border-color);
+  border: 1px solid black;
 }
 .play-container {
   width: 150px;

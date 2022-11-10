@@ -37,11 +37,12 @@ export default {
   height: 400px;
   border-radius: 15px;
   background: var(--settings-backgroud-color);
+  border: 1px solid black;
 }
 
 .settings-holder-container:hover {
   background: var(--settings-hover-backgroud-color);
-  border: 1px solid var(--settings-hover-border-color);
+  border: 1px solid black;
 }
 
 .settings-container {

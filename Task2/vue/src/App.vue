@@ -21,17 +21,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 :root {
   --main-background-color: rgb(211, 211, 211);
   --main-hover-background-color: rgb(171, 171, 171);
 }
 
 html, body, #app {
-  font-family: 'Montserrat', sans-serif;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: var(--main-background-color);
 }
 
 body {

@@ -1,5 +1,5 @@
 <template>
-<div class="home-component" :class="[appColorTheme, appFont]">
+<div class="home-component" :class="[this.appColorTheme, this.appFont]">
   <div class="applications-holder">
     <component :is="currentLeftApp"></component>
     <component :is="currentRightApp"></component>
@@ -33,11 +33,27 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+   
 :root {
   --theme-background-color: rgb(173, 173, 173);
   --theme-background-hover-color: rgb(143, 143, 143);
-  --theme-font-family: 'Montserrat', sans-serif;
+  --theme-font-family: 'Arial';
 }
 
 .home-component {
@@ -50,7 +66,7 @@ export default {
   font-family: var(--theme-font-family);
 }
 
-.home-component {
+.home-component:hover {
   background: var(--theme-background-hover-color);
 }
 
@@ -66,29 +82,34 @@ export default {
 
 .blue {
   --theme-background-color: rgb(118, 118, 255);
+}
+
+.blue:hover {
   --theme-background-hover-color: rgb(85, 85, 255);
 }
 
 .orange {
   --theme-background-color: rgb(255, 179, 79);
-  --theme-background-hover-color: rgb(255, 161, 37);
 }
 
-.default-font {
-  font-family: var(--theme-font-family);
+.orange:hover {
+  --theme-background-hover-color: rgb(255, 161, 37);
 }
 
 .purple {
   --theme-background-color: rgb(238, 74, 197);
+}
+
+.purple:hover {
   --theme-background-hover-color: rgb(171, 54, 142);
 }
 
 .consolas {
-  --theme-font-family: 'Consolas', sans-serif;
+  --theme-font-family: 'Consolas';
 }
 
 .trebuchet {
-  --theme-font-family: 'Trebuchet MS', sans-serif;
+  --theme-font-family: 'Trebuchet MS';
 }
 
 </style>

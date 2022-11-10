@@ -17,7 +17,7 @@
         <option selected :value="color" v-for="(color, index) in getСolorsFromCustomColorsList()" :key="index">{{ index }}</option>
       </select>
       <p>Fonts:</p>
-      <select name="select" v-model="selectedAppFont" @change="setAppFont">
+      <select name="select" v-model="selectedAppFont" @change="setAppFontTheme">
         <option selected :value="font" v-for="(font, index) in getFontsFromCustomFontsList()" :key="index">{{ index }}</option>
       </select>
     </div>
@@ -52,7 +52,7 @@ export default {
       this.setAppThemeColor(this.selectedAppThemeColor);
     },
 
-    setAppFont() {
+    setAppFontTheme() {
       this.setAppFont(this.selectedAppFont);
     }
   },
@@ -81,6 +81,12 @@ select {
   height: 400px;
   border-radius: 10px;
   border: 1px solid black;
+  background: var(--theme-background-color);
+  font-family: var(--theme-font-family);
+}
+
+.setting-holder-container:hover {
+  background: var(--theme-background-hover-color);
 }
 
 .select-holder-container {

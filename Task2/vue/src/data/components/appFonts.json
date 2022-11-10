@@ -1,5 +1,5 @@
 {
-  "DefaultFont": "default-font",
+  "DefaultFont": "defaultFont",
   "customFonts": {
     "Consolas": "consolas",
     "Trebuchet MS": "trebuchet"

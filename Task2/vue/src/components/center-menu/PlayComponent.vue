@@ -37,10 +37,13 @@ export default {
   height: 400px;
   border-radius: 15px;
   border: 1px solid black;
+  background: var(--theme-background-color);
+  font-family: var(--theme-font-family);
 }
 
 .play-holder-container:hover {
   border: 1px solid black;
+  background: var(--theme-background-hover-color);
 }
 .play-container {
   width: 150px;

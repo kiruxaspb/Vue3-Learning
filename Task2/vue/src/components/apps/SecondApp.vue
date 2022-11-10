@@ -35,7 +35,15 @@
     border: 1px solid black;
     width: 400px;
     height: 400px;
+    background: var(--theme-background-color);
+    font-family: var(--theme-font-family);
   }
+
+  .second-app-holder-container:hover {
+    background: var(--theme-background-hover-color);
+  }
+
+
   
   .go-back-btn {
     z-index: 1;

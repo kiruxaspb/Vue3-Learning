@@ -34,26 +34,10 @@ export default {
 </script>
 
 <style>
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  overflow: auto;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-   
 :root {
   --theme-background-color: rgb(173, 173, 173);
   --theme-background-hover-color: rgb(143, 143, 143);
-  --theme-font-family: 'Arial';
+  --theme-font-family: 'Montserrat', sans-serif;
 }
 
 .home-component {
@@ -62,12 +46,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--theme-background-color);
-  font-family: var(--theme-font-family);
-}
-
-.home-component:hover {
-  background: var(--theme-background-hover-color);
 }
 
 .applications-holder {
@@ -76,40 +54,30 @@ body {
   flex-wrap: wrap;
 }
 
-.default {
-  background: var(--theme-background-color);
-}
-
 .blue {
   --theme-background-color: rgb(118, 118, 255);
-}
-
-.blue:hover {
-  --theme-background-hover-color: rgb(85, 85, 255);
+  --theme-background-hover-color: rgb(75, 75, 255);
 }
 
 .orange {
   --theme-background-color: rgb(255, 179, 79);
-}
-
-.orange:hover {
-  --theme-background-hover-color: rgb(255, 161, 37);
+  --theme-background-hover-color: rgb(255, 151, 14);
 }
 
 .purple {
   --theme-background-color: rgb(238, 74, 197);
+  --theme-background-hover-color: rgb(255, 6, 193);
 }
 
-.purple:hover {
-  --theme-background-hover-color: rgb(171, 54, 142);
+.default {
+  --theme-font-family: 'Montserrat', sans-serif;
 }
 
 .consolas {
-  --theme-font-family: 'Consolas';
+  --theme-font-family: 'Consolas', sans-serif;
 }
 
 .trebuchet {
-  --theme-font-family: 'Trebuchet MS';
+  --theme-font-family: 'Trebuchet MS', sans-serif;
 }
-
 </style>

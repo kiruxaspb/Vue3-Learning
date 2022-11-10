@@ -36,12 +36,13 @@ export default {
   width: 400px;
   height: 400px;
   border-radius: 15px;
-  background: var(--settings-backgroud-color);
+  background: var(--theme-background-color);
   border: 1px solid black;
+  font-family: var(--theme-font-family);
 }
 
 .settings-holder-container:hover {
-  background: var(--settings-hover-backgroud-color);
+  background: var(--theme-background-hover-color);
   border: 1px solid black;
 }
 

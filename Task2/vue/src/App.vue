@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 :root {
   --main-background-color: rgb(211, 211, 211);
   --main-hover-background-color: rgb(171, 171, 171);
@@ -39,6 +39,7 @@ body {
 }
 
 * {
+  font-family: var(--theme-font-family);
   box-sizing: border-box;
   margin: 0;
   padding: 0;

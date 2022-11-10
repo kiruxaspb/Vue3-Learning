@@ -8,7 +8,7 @@
     </div>
     <div class="input-name-application">
       <div class="input-add-holder">
-        <input type="text" placeholder="Input your string" v-model="nameText">
+        <input type="text" placeholder="Input your string" class="input-string" v-model="nameText">
         <button class="add-name" @click="addValidString" :disabled="!isInputValid">Add</button>
       </div>
       <div class="errors-holder">
@@ -155,6 +155,11 @@ h1 {
   width: 200px;
   height: 35px;
   font-size: 15px;
+}
+
+.input-add-holder input:focus {
+  outline: 3px solid rgb(204, 255, 0);
+  border: none;
 }
 
 .errors-holder {
